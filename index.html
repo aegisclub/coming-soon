@@ -99,7 +99,7 @@
 
         <!-- Hero Section -->
         <section id="hero" class="text-center mb-16 md:mb-24">
-            <!-- The hero text is split into two lines to prevent overflow on mobile and will type sequentially -->
+            <!-- The hero text is now a single line -->
             <p id="typing-hero" class="typing-text inline-block text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold">Campus feels quiet...</p>
             <p class="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold mt-2">Something's about to snap.</p>
         </section>
@@ -122,48 +122,20 @@
             </div>
         </section>
 
-        <!-- Footer -->
-        <footer class="text-center mt-16 md:mt-24">
-            <p class="text-gray-400">// Stay Connected. Stay Alert.</p>
-            <div class="flex justify-center space-x-6 mt-4">
-                <!-- Add your social media links here -->
-                <a href="#" class="text-gray-400 hover:text-white transition-colors">Twitter</a>
-                <a href="#" class="text-gray-400 hover:text-white transition-colors">Discord</a>
-                <a href="#" class="text-gray-400 hover:text-white transition-colors">GitHub</a>
-            </div>
-            <p class="text-xs text-gray-600 mt-8">&copy; 2025 Project Overload. All rights reserved.</p>
-        </footer>
-
     </div>
     
     <script>
-        // This script creates a sequential typing animation.
+        // This script creates a typing animation for the hero text.
         document.addEventListener('DOMContentLoaded', () => {
             const heroText1 = document.getElementById('typing-hero');
-            const heroText2 = document.getElementById('typing-hero-2');
 
-            if (heroText1 && heroText2) {
-                // Hide the second line initially, but keep its space
-                heroText2.style.visibility = 'hidden';
-                
+            if (heroText1) {
                 // Remove any existing animation styles from CSS to let JS take full control
                 heroText1.style.animation = 'none';
-                heroText2.style.animation = 'none';
+                heroText1.offsetHeight; /* Trigger reflow */
                 
-                // Start animation for the first line
+                // Start animation for the line
                 heroText1.style.animation = 'typing 2.5s steps(25, end), blink-caret .75s step-end infinite';
-
-                // Set a timeout to handle the switch
-                setTimeout(() => {
-                    // Stop the blinking cursor on the first line and remove the border
-                    heroText1.style.animation = '';
-                    heroText1.style.borderRight = 'none';
-
-                    // Make the second line visible and start its animation
-                    heroText2.style.visibility = 'visible';
-                    heroText2.style.animation = 'typing 1.5s steps(15, end), blink-caret .75s step-end infinite';
-
-                }, 2500); // This duration should match the first animation's duration
             }
         });
     </script>
