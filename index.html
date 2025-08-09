@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Unknown // Club Launch</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts for a 'hacker' feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Custom Styles --- */
+        body {
+            font-family: 'Fira Code', monospace;
+            background-color: #0a0a0a;
+            color: #00ff41; /* Neon Green */
+            /* Grid background effect */
+            background-image: 
+                linear-gradient(rgba(0, 255, 65, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 65, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+            animation: flicker 5s infinite alternate;
+        }
+
+        /* Use a more futuristic font for headings */
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 5px #00ff41, 0 0 10px #00ff41;
+        }
+
+        /* Typing animation styles */
+        .typing-text {
+            border-right: .15em solid #00ff41; /* The cursor */
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+        
+        /* The typing effect */
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        /* The typewriter cursor effect */
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #00ff41; }
+        }
+        
+        /* A subtle flicker effect for the background text */
+        @keyframes flicker {
+            0%, 100% {
+                color: #00ff41;
+                text-shadow: 0 0 5px #00ff41, 0 0 10px #00ff41;
+            }
+            50% {
+                color: #00dd38;
+                text-shadow: 0 0 5px #00dd38, 0 0 8px #00dd38;
+            }
+        }
+
+        /* Style for the embedded form container */
+        .form-container {
+            border: 2px solid #00ff41;
+            border-radius: 1rem;
+            padding: 1rem;
+            background-color: rgba(10, 10, 10, 0.8);
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+        }
+        
+        .form-container iframe {
+            border-radius: 0.75rem; /* Match the container's rounding */
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Main Container -->
+    <div class="container mx-auto px-4 py-8 md:py-16">
+
+        <!-- Header Section -->
+        <header class="text-center mb-16 md:mb-24">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold uppercase tracking-widest">Project: Unknown</h1>
+            <p id="typing-subtitle" class="text-lg md:text-xl mt-4 text-gray-300">// The new era of cybersecurity begins now.</p>
+        </header>
+
+        <!-- Hero Section -->
+        <section id="hero" class="text-center mb-20 md:mb-32">
+            <div class="inline-block">
+                 <p class="typing-text text-2xl md:text-4xl lg:text-5xl font-bold">Campus feels quiet... too quiet.</p>
+            </div>
+            <p class="text-2xl md:text-4xl lg:text-5xl font-bold mt-2">Something's about to snap.</p>
+        </section>
+
+        <!-- About the Club Section -->
+        <section id="about" class="max-w-4xl mx-auto mb-20 md:mb-32 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">> INITIATE PROTOCOL</h2>
+            <p class="text-base md:text-lg leading-relaxed text-gray-300">
+                We are a collective of digital pioneers, ethical hackers, and security enthusiasts dedicated to exploring the depths of cyberspace. Our mission is to equip members with the skills to defend the digital world through hands-on workshops, Capture The Flag (CTF) competitions, and talks from industry insiders. Whether you're a beginner or a seasoned coder, your initiation starts here.
+            </p>
+        </section>
+
+        <!-- Registration Form Section -->
+        <section id="register" class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">> JOIN THE UPRISING</h2>
+            <div class="form-container">
+                <!-- Google Form Embed -->
+                <!-- I've adjusted the width to be 100% responsive and increased the height to prevent scrolling -->
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeY1QUiGgkim3L5sAFJiEJnbGt8aP9LekhRES7sQdLuAK2uPg/viewform?embedded=true" width="100%" height="1850" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
