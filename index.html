@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Unknown // Club Launch</title>
+    <title>Project Overload // Club Launch</title>
     
     <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -38,7 +38,7 @@
             border-right: .15em solid #00ff41; /* The cursor */
             white-space: nowrap;
             overflow: hidden;
-            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+            /* Animation is applied via JS now to ensure it runs once on load */
         }
         
         /* The typing effect */
@@ -69,7 +69,7 @@
         .form-container {
             border: 2px solid #00ff41;
             border-radius: 1rem;
-            padding: 1rem;
+            padding: 0.5rem; /* Reduced padding for mobile */
             background-color: rgba(10, 10, 10, 0.8);
             box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
         }
@@ -77,46 +77,78 @@
         .form-container iframe {
             border-radius: 0.75rem; /* Match the container's rounding */
         }
+
+        /* Responsive adjustments for smaller screens */
+        @media (min-width: 640px) {
+            .form-container {
+                padding: 1rem; /* Restore padding for larger screens */
+            }
+        }
     </style>
 </head>
 <body class="antialiased">
 
     <!-- Main Container -->
-    <div class="container mx-auto px-4 py-8 md:py-16">
+    <div class="container mx-auto px-4 py-8 md:py-12">
 
         <!-- Header Section -->
-        <header class="text-center mb-16 md:mb-24">
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold uppercase tracking-widest">Project: Unknown</h1>
-            <p id="typing-subtitle" class="text-lg md:text-xl mt-4 text-gray-300">// The new era of cybersecurity begins now.</p>
+        <header class="text-center mb-12 md:mb-20">
+            <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold uppercase tracking-widest">Project: Overload</h1>
+            <p id="typing-subtitle" class="text-base sm:text-lg md:text-xl mt-4 text-gray-300">// The new era of cybersecurity begins now.</p>
         </header>
 
         <!-- Hero Section -->
-        <section id="hero" class="text-center mb-20 md:mb-32">
+        <section id="hero" class="text-center mb-16 md:mb-24">
             <div class="inline-block">
-                 <p class="typing-text text-2xl md:text-4xl lg:text-5xl font-bold">Campus feels quiet... too quiet.</p>
+                 <p id="typing-hero" class="typing-text text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold">Campus feels quiet... too quiet.</p>
             </div>
-            <p class="text-2xl md:text-4xl lg:text-5xl font-bold mt-2">Something's about to snap.</p>
+            <p class="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold mt-2">Something's about to snap.</p>
         </section>
 
         <!-- About the Club Section -->
-        <section id="about" class="max-w-4xl mx-auto mb-20 md:mb-32 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">> INITIATE PROTOCOL</h2>
-            <p class="text-base md:text-lg leading-relaxed text-gray-300">
+        <section id="about" class="max-w-4xl mx-auto mb-16 md:mb-24 text-center">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-6">> INITIATE PROTOCOL</h2>
+            <p class="text-sm sm:text-base md:text-lg leading-relaxed text-gray-300">
                 We are a collective of digital pioneers, ethical hackers, and security enthusiasts dedicated to exploring the depths of cyberspace. Our mission is to equip members with the skills to defend the digital world through hands-on workshops, Capture The Flag (CTF) competitions, and talks from industry insiders. Whether you're a beginner or a seasoned coder, your initiation starts here.
             </p>
         </section>
 
         <!-- Registration Form Section -->
         <section id="register" class="max-w-4xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">> JOIN THE UPRISING</h2>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6">> JOIN THE UPRISING</h2>
             <div class="form-container">
                 <!-- Google Form Embed -->
-                <!-- I've adjusted the width to be 100% responsive and increased the height to prevent scrolling -->
+                <!-- The height is kept to ensure the full form is visible without an internal scrollbar, as requested. -->
                 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeY1QUiGgkim3L5sAFJiEJnbGt8aP9LekhRES7sQdLuAK2uPg/viewform?embedded=true" width="100%" height="1850" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
             </div>
         </section>
 
+        <!-- Footer -->
+        <footer class="text-center mt-16 md:mt-24">
+            <p class="text-gray-400">// Stay Connected. Stay Alert.</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <!-- Add your social media links here -->
+                <a href="#" class="text-gray-400 hover:text-white transition-colors">Twitter</a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors">Discord</a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors">GitHub</a>
+            </div>
+            <p class="text-xs text-gray-600 mt-8">&copy; 2025 Project Overload. All rights reserved.</p>
+        </footer>
+
     </div>
+    
+    <script>
+        // This script re-triggers the typing animation on page load.
+        // It ensures the animation is smooth and plays correctly.
+        document.addEventListener('DOMContentLoaded', () => {
+            const heroText = document.getElementById('typing-hero');
+            if (heroText) {
+                heroText.style.animation = 'none';
+                heroText.offsetHeight; /* Trigger reflow */
+                heroText.style.animation = 'typing 3.5s steps(40, end), blink-caret .75s step-end infinite';
+            }
+        });
+    </script>
 
 </body>
 </html>
