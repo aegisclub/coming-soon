@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Overload // Club Launch</title>
+    <title>Project Unknown // Club Launch</title>
     
     <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -93,15 +93,15 @@
 
         <!-- Header Section -->
         <header class="text-center mb-12 md:mb-20">
-            <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold uppercase tracking-widest">Project: Overload</h1>
+            <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold uppercase tracking-widest">Project: Unknown</h1>
             <p id="typing-subtitle" class="text-base sm:text-lg md:text-xl mt-4 text-gray-300">// The new era of cybersecurity begins now.</p>
         </header>
 
         <!-- Hero Section -->
         <section id="hero" class="text-center mb-16 md:mb-24">
-            <div class="inline-block">
-                 <p id="typing-hero" class="typing-text text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold">Campus feels quiet... too quiet.</p>
-            </div>
+            <!-- The hero text is split into two lines to prevent overflow on mobile -->
+            <p id="typing-hero" class="typing-text inline-block text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold">Campus feels quiet...</p>
+            <p class="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold">too quiet.</p>
             <p class="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold mt-2">Something's about to snap.</p>
         </section>
 
@@ -123,18 +123,6 @@
             </div>
         </section>
 
-        <!-- Footer -->
-        <footer class="text-center mt-16 md:mt-24">
-            <p class="text-gray-400">// Stay Connected. Stay Alert.</p>
-            <div class="flex justify-center space-x-6 mt-4">
-                <!-- Add your social media links here -->
-                <a href="#" class="text-gray-400 hover:text-white transition-colors">Twitter</a>
-                <a href="#" class="text-gray-400 hover:text-white transition-colors">Discord</a>
-                <a href="#" class="text-gray-400 hover:text-white transition-colors">GitHub</a>
-            </div>
-            <p class="text-xs text-gray-600 mt-8">&copy; 2025 Project Overload. All rights reserved.</p>
-        </footer>
-
     </div>
     
     <script>
@@ -145,7 +133,8 @@
             if (heroText) {
                 heroText.style.animation = 'none';
                 heroText.offsetHeight; /* Trigger reflow */
-                heroText.style.animation = 'typing 3.5s steps(40, end), blink-caret .75s step-end infinite';
+                // Adjusted animation timing for the shorter sentence
+                heroText.style.animation = 'typing 2.5s steps(25, end), blink-caret .75s step-end infinite';
             }
         });
     </script>
